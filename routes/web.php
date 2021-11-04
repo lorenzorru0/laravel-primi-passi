@@ -14,5 +14,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+
+    $data = [
+        'pages' => ['page1', 'page2', 'page3'] 
+    ];
+
+    return view('home', $data);
+});
+
+Route::get('/page1', function () {
+
+    $data = [
+        'pages' => ['home', 'page2', 'page3']
+    ];
+
+    return view('page1', $data);
+});
+
+Route::get('/page2', function () {
+
+    $data = [
+        'pages' => ['home', 'page1', 'page3']
+    ];
+
+    return view('page2', $data);
+});
+
+Route::get('/page3', function () {
+
+    $data = [
+        'pages' => ['home', 'page1', 'page2']
+    ];
+
+    return view('page3', $data);
 });
